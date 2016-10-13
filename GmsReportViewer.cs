@@ -206,7 +206,6 @@ namespace GmsReportViewer
                 return;
             var logonInfo = GetLogonInfo(data[0]);
             string userID = logonInfo.UserID != "" ? logonInfo.UserID : "dbo";
-            //string connString = $@"DSN={logonInfo.ServerName};Database={logonInfo.DatabaseName};Uid={userID}; Pwd={logonInfo.Password};UserDSNProperties=0;";
             _reportDocument.SetDatabaseLogon(userID, logonInfo.Password, logonInfo.ServerName, logonInfo.DatabaseName);
             ConnectionInfo connectInfo = GetConnectionInfo(logonInfo);
             foreach(Table table in _reportDocument.Database.Tables)
